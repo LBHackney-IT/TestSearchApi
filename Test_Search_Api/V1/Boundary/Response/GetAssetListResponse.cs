@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Hackney.Shared.HousingSearch.Domain.Asset;
 
-namespace HousingSearchApi.V1.Boundary.Responses
+namespace Test_Search_Api.V1.Boundary.Response
 {
     public class GetAssetListResponse
     {
