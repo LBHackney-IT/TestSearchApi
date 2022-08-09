@@ -24,39 +24,9 @@ namespace Test_Search_Api.V1.Gateways
             _elasticSearchWrapper = elasticSearchWrapper;
         }
 
-        [LogCall]
-        public async Task<GetPersonListResponse> GetListOfPersons(GetPersonListRequest query)
-        {
-            var searchResponse = await _elasticSearchWrapper.Search<QueryablePerson, GetPersonListRequest>(query).ConfigureAwait(false);
-            var personListResponse = new GetPersonListResponse();
-
-            personListResponse.Persons.AddRange(searchResponse.Documents.Select(queryablePerson =>
-                queryablePerson.Create())
-            );
-
-            personListResponse.SetTotal(searchResponse.Total);
-
-            return personListResponse;
-        }
-
-        [LogCall]
-        public async Task<GetTenureListResponse> GetListOfTenures(GetTenureListRequest query)
-        {
-            var searchResponse = await _elasticSearchWrapper.Search<QueryableTenure, GetTenureListRequest>(query).ConfigureAwait(false);
-            var tenureListResponse = new GetTenureListResponse();
-
-            tenureListResponse.Tenures.AddRange(searchResponse.Documents.Select(queryableTenure =>
-                queryableTenure.Create())
-            );
-
-            tenureListResponse.SetTotal(searchResponse.Total);
-
-            return tenureListResponse;
-        }
-
-        [LogCall]
-        public async Task<GetAssetListResponse> GetListOfAssets(GetAssetListRequest query)
-        {
+       public async Task<GetAssetListResponse> GetListOfAssets(GetAssetListRequest query)
+        { 
+            //what is the significance of Queryable Asset?
             var searchResponse = await _elasticSearchWrapper.Search<QueryableAsset, GetAssetListRequest>(query).ConfigureAwait(false);
             var assetListResponse = new GetAssetListResponse();
 
@@ -65,51 +35,9 @@ namespace Test_Search_Api.V1.Gateways
             );
 
             assetListResponse.SetTotal(searchResponse.Total);
-
+ 
             return assetListResponse;
         }
-
-        [LogCall]
-        public async Task<GetAllAssetListResponse> GetListOfAssetsSets(GetAllAssetListRequest query)
-        {
-            var searchResponse = await _elasticSearchWrapper.SearchSets<QueryableAsset, GetAllAssetListRequest>(query).ConfigureAwait(false);
-            var assetListResponse = new GetAllAssetListResponse();
-
-            if (searchResponse == null) return assetListResponse;
-            assetListResponse.Assets.AddRange(searchResponse.Documents.Select(queryableAsset =>
-                queryableAsset.CreateAll())
-            );
-
-            assetListResponse.SetTotal(searchResponse.Total);
-            if (searchResponse.Documents.Count > 0)
-            {
-                assetListResponse.SetLastHitId(searchResponse.Hits.Last().Id);
-            }
-
-            return assetListResponse;
-        }
-
-        public async Task<GetAccountListResponse> GetListOfAccounts(GetAccountListRequest query)
-        {
-            var searchResponse = await _elasticSearchWrapper.Search<QueryableAccount, GetAccountListRequest>(query).ConfigureAwait(false);
-            var accountListResponse = GetAccountListResponse.Create(searchResponse.Documents.Select(queryableAccount =>
-                queryableAccount.ToAccount())?.ToList());
-
-            accountListResponse.SetTotal(searchResponse.Total);
-
-            return accountListResponse;
-        }
-
-        public async Task<GetTransactionListResponse> GetListOfTransactions(GetTransactionListRequest request)
-        {
-            var searchRequest = new GetTransactionListRequest
-            {
-                SearchText = request.SearchText,
-                Page = request.Page,
-                PageSize = request.PageSize,
-                StartDate = request.StartDate,
-                EndDate = request.EndDate
-            };
 
             var searchResponse = await _elasticSearchWrapper.Search<QueryableTransaction, GetTransactionListRequest>(searchRequest).ConfigureAwait(false);
 
