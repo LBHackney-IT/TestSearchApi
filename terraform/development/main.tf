@@ -38,8 +38,7 @@ terraform {
 
 module "development" {
   # Delete as appropriate:
-  source                      = "github.com/LBHackney-IT/aws-hackney-components-per-service-terraform.git//modules/environment/backend/fargate"
-  # source = "github.com/LBHackney-IT/aws-hackney-components-per-service-terraform.git//modules/environment/backend/ec2"
+  source                      = "github.com/LBHackney-IT/Test_Search_Api//terraform/development/main.tf"
   cluster_name                = "development-apis"
   ecr_name                    = ecr repository name # Replace with your repository name - pattern: "hackney/YOUR APP NAME"
   environment_name            = "development"
@@ -55,8 +54,4 @@ module "development" {
   task_definition_environment_variables = {
     ASPNETCORE_ENVIRONMENT = "development"
   }
-  task_definition_environment_variable_count = number # This number needs to reflect the number of environment variables provided
-  cost_code = your project's cost code
-  task_definition_secrets      = {}
-  task_definition_secret_count = number # This number needs to reflect the number of environment variables provided
 }
