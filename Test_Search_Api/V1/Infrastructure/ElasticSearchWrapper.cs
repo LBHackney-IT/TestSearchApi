@@ -1,5 +1,5 @@
-Seusing HousingSearchApi.V1.Boundary.Requests;
-using HousingSearchApi.V1.Interfaces.Sorting;
+using HousingSearchApi.V1.Boundary.Requests;
+using Test_Search_Api.V1.Interfaces.Sorting;
 using Microsoft.Extensions.Logging;
 using Nest;
 using System;
