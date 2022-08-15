@@ -1,6 +1,5 @@
-using HousingSearchApi.V1.Boundary.Requests;
+using Test_Search_Api.V1.Boundary.Request;
 using Test_Search_Api.V1.Interfaces.Sorting;
-using Microsoft.Extensions.Logging;
 using Nest;
 using System;
 using System.Linq;
@@ -19,7 +18,6 @@ namespace HousingSearchApi.V1.Infrastructure
         private readonly IPagingHelper _pagingHelper;
         private readonly ISortFactory _sortFactory;
         private readonly IFilterFactory _filterFactory;
-        private readonly ILogger<ElasticSearchWrapper> _logger;
         private readonly IIndexSelector _indexSelector;
 
         public ElasticSearchWrapper(IElasticClient esClient, IQueryFactory queryFactory,
@@ -40,7 +38,6 @@ namespace HousingSearchApi.V1.Infrastructure
             try
             {
                 var esNodes = string.Join(';', _esClient.ConnectionSettings.ConnectionPool.Nodes.Select(x => x.Uri));
-                _logger.LogDebug($"ElasticSearch Search begins {esNodes}");
 
                 if (request == null)
                     return new SearchResponse<T>();
@@ -57,18 +54,14 @@ namespace HousingSearchApi.V1.Infrastructure
                     .Skip(pageOffset)
                     .TrackTotalHits()).ConfigureAwait(false);
 
-                _logger.LogDebug("ElasticSearch Search ended");
-
                 return result;
             }
             catch (ElasticsearchClientException e)
             {
-                _logger.LogError(e, "ElasticSearch Search threw an ElasticSearchClientException. DebugInfo: " + e.DebugInformation);
                 throw;
             }
             catch (Exception e)
             {
-                _logger.LogError(e, "ElasticSearch Search threw an exception");
                 throw;
             }
         }
@@ -76,7 +69,6 @@ namespace HousingSearchApi.V1.Infrastructure
         public async Task<ISearchResponse<T>> SearchSets<T, TRequest>(TRequest request) where T : class where TRequest : class
         {
             var esNodes = string.Join(';', _esClient.ConnectionSettings.ConnectionPool.Nodes.Select(x => x.Uri));
-            _logger.LogDebug($"ElasticSearch Search Sets begins {esNodes}");
 
             if (request == null)
                 return new SearchResponse<T>();
@@ -109,14 +101,10 @@ namespace HousingSearchApi.V1.Infrastructure
                       ).ConfigureAwait(false);
                 }
 
-                _logger.LogDebug("ElasticSearch Search Sets ended");
-
                 return result;
             }
             catch (Exception e)
             {
-
-                _logger.LogError(e, "ElasticSearch Search Sets threw an exception");
                 throw;
             }
 
