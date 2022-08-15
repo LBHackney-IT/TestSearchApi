@@ -1,5 +1,5 @@
 using Hackney.Shared.HousingSearch.Gateways.Models.Assets;
-using Test_Search_Api.V1.Boundary.Request;
+using Test_Search_Api.V1.Boundary.Requests;
 using Test_Search_Api.V1.Boundary.Response;
 using Test_Search_Api.V1.Gateways.Interfaces;
 using Test_Search_Api.V1.Interfaces;
@@ -18,8 +18,8 @@ namespace Test_Search_Api.V1.Gateways
             _elasticSearchWrapper = elasticSearchWrapper;
         }
 
-       public async Task<GetAssetListResponse> GetListOfAssets(GetAssetListRequest query)
-        { 
+        public async Task<GetAssetListResponse> GetListOfAssets(GetAssetListRequest query)
+        {
             //what is the significance of Queryable Asset?
             var searchResponse = await _elasticSearchWrapper.Search<QueryableAsset, GetAssetListRequest>(query).ConfigureAwait(false);
             var assetListResponse = new GetAssetListResponse();
@@ -29,7 +29,7 @@ namespace Test_Search_Api.V1.Gateways
             );
 
             assetListResponse.SetTotal(searchResponse.Total);
- 
+
             return assetListResponse;
         }
     }

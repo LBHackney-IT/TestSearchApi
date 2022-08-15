@@ -1,4 +1,4 @@
-using Test_Search_Api.V1.Boundary.Request;
+using Test_Search_Api.V1.Boundary.Requests;
 using Test_Search_Api.V1.Interfaces.Sorting;
 using Nest;
 using System;

@@ -1,4 +1,4 @@
-using Test_Search_Api.V1.Boundary.Request;
+using Test_Search_Api.V1.Boundary.Requests;
 using Test_Search_Api.V1.Boundary.Response;
 using System.Threading.Tasks;
 // using Test_Search_Api.V1.Boundary.Responses.Transactions;

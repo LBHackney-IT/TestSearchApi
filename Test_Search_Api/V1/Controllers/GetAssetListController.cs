@@ -1,11 +1,10 @@
 using Amazon.Lambda.Core;
 using Hackney.Core.Logging;
 using Test_Search_Api.V1.Boundary.Requests;
-using Test_Search_Api.V1.Boundary.Responses;
-using Test_Search_Api.V1.Boundary.Responses.Metadata;
+using Test_Search_Api.V1.Boundary.Response;
+using Test_Search_Api.V1.Boundary.Response.Metadata;
 using Test_Search_Api.V1.UseCase.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
