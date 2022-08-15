@@ -11,6 +11,7 @@
         <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'base_api' " />
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="5.1.1" />
     <PackageReference Include="AspectInjector" Version="2.5.0" />
@@ -40,4 +41,10 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="V1\Interfaces\Factories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="V1\Interfaces\Factories\" />
+  </ItemGroup>
 </Project>

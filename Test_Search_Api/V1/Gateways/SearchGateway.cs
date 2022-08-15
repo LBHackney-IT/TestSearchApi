@@ -1,9 +1,8 @@
-using Hackney.Shared.HousingSearch.Gateways.Models.Assets;
+//using Hackney.Shared.HousingSearch.Gateways.Models.Assets;
 using Test_Search_Api.V1.Boundary.Requests;
 using Test_Search_Api.V1.Boundary.Response;
 using Test_Search_Api.V1.Gateways.Interfaces;
 using Test_Search_Api.V1.Interfaces;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
