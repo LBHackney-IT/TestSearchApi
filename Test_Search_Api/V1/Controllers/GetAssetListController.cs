@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Test_Search_Api.V1.Controllers;
-using HousingSearchApi.V1.Boundary.Responses.Metadata;
 using Amazon.SimpleNotificationService.Model;
+using Test_Search_Api.V1.Boundary.Responses.Metadata;
 
 namespace Test_Search_Api.Controllers
 {
@@ -25,7 +25,7 @@ namespace Test_Search_Api.Controllers
 
         [ProducesResponseType(typeof(APIResponse<GetAssetListResponse>), 200)]
         [ProducesResponseType(typeof(APIResponse<NotFoundException>), 404)]
-        //[ProducesResponseType(typeof(APIResponse<BadRequestException>), 400)] TODO: HOW TO SOLVE THIS?
+        //[ProducesResponseType(typeof(APIResponse<BadRequestException>), 400)]
         [HttpGet, MapToApiVersion("1")]
         public async Task<IActionResult> GetAssetList([FromQuery] GetAssetListRequest request)
         {

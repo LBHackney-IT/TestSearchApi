@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using HousingSearchApi.V1.Boundary.Requests;
+using Test_Search_Api.V1.Boundary.Requests;
 using Nest;
 
 

@@ -1,4 +1,3 @@
-//using Hackney.Shared.HousingSearch.Gateways.Models.Assets;
 using Test_Search_Api.V1.Boundary.Requests;
 using Test_Search_Api.V1.Boundary.Response;
 using Test_Search_Api.V1.Gateways.Interfaces;
