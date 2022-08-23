@@ -8,5 +8,6 @@
         public string LastName { get; set; }
         public int DOB { get; set; }
         public string AssetType { get; set; }
+        public int NumberOfBedrooms { get; set; }
     }
 }
