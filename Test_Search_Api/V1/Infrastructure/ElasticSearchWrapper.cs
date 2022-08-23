@@ -8,28 +8,29 @@ using Elasticsearch.Net;
 using Test_Search_Api.V1.Interfaces;
 using Test_Search_Api.V1.Interfaces.Factories;
 using Test_Search_Api.V1.Interfaces.Filtering;
+using HousingSearchApi.V1.Boundary.Requests;
+using HousingSearchApi.V1.Infrastructure.Factories;
 
 namespace HousingSearchApi.V1.Infrastructure
 {
     public class ElasticSearchWrapper : IElasticSearchWrapper
     {
         private readonly IElasticClient _esClient;
-        private readonly IQueryFactory _queryFactory;
         private readonly IPagingHelper _pagingHelper;
         private readonly ISortFactory _sortFactory;
         private readonly IFilterFactory _filterFactory;
         private readonly IIndexSelector _indexSelector;
+        private readonly IQueryFactory _queryFactory;
 
-        public ElasticSearchWrapper(IElasticClient esClient, IQueryFactory queryFactory,
-            IPagingHelper pagingHelper, ISortFactory sortFactory, ILogger<ElasticSearchWrapper> logger, IIndexSelector indexSelector,
-            IFilterFactory filterFactory)
+        public ElasticSearchWrapper(IElasticClient esClient,
+            IPagingHelper pagingHelper, ISortFactory sortFactory, IIndexSelector indexSelector,
+            IFilterFactory filterFactory, IQueryFactory queryFactory)
         {
             _esClient = esClient;
-            _queryFactory = queryFactory;
             _pagingHelper = pagingHelper;
+            _queryFactory = queryFactory;
             _sortFactory = sortFactory;
             _filterFactory = filterFactory;
-            _logger = logger;
             _indexSelector = indexSelector;
         }
 
@@ -56,11 +57,11 @@ namespace HousingSearchApi.V1.Infrastructure
 
                 return result;
             }
-            catch (ElasticsearchClientException e)
+            catch (ElasticsearchClientException)
             {
                 throw;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -72,16 +73,16 @@ namespace HousingSearchApi.V1.Infrastructure
 
             if (request == null)
                 return new SearchResponse<T>();
-            var searchRequest = (GetAllAssetListRequest) (object) request;
+            var searchRequest = (GetAssetListRequest) (object) request;
 
-            var elements = !string.IsNullOrEmpty(searchRequest.LastHitId) ? new string[] { searchRequest.LastHitId } : new string[] { string.Empty };
-            var lastSortedItem = !string.IsNullOrEmpty(searchRequest.LastHitId) ? elements.Cast<object>().ToArray() : null;
+            var elements = !string.IsNullOrEmpty(searchRequest.AssetTypes) ? new string[] { searchRequest.AssetTypes } : new string[] { string.Empty };
+            var lastSortedItem = !string.IsNullOrEmpty(searchRequest.AssetTypes) ? elements.Cast<object>().ToArray() : null;
 
             ISearchResponse<T> result = null;
 
             try
             {
-                if (string.IsNullOrEmpty(searchRequest.LastHitId) && searchRequest.Page == 1)
+                if (string.IsNullOrEmpty(searchRequest.AssetTypes) && searchRequest.Page == 1)
                 {
                     result = await _esClient.SearchAsync<T>(x => x.Index(_indexSelector.Create<T>())
                       .Query(q => BaseQuery<T>().Create(request, q))
@@ -90,7 +91,7 @@ namespace HousingSearchApi.V1.Infrastructure
                       .TrackTotalHits()
                       ).ConfigureAwait(false);
                 }
-                else if (!string.IsNullOrEmpty(searchRequest.LastHitId))
+                else if (!string.IsNullOrEmpty(searchRequest.AssetTypes))
                 {
                     result = await _esClient.SearchAsync<T>(x => x.Index(_indexSelector.Create<T>())
                       .Query(q => BaseQuery<T>().Create(request, q))
@@ -103,7 +104,7 @@ namespace HousingSearchApi.V1.Infrastructure
 
                 return result;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
