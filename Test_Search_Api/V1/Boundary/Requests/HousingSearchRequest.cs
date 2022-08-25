@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace HousingSearchApi.V1.Boundary.Requests
+namespace Test_Search_Api.V1.Boundary.Requests
 {
     public abstract class HousingSearchRequest
     {

@@ -12,7 +12,7 @@ using QueryableTenure = Hackney.Shared.HousingSearch.Gateways.Models.Tenures.Que
 using QueryablePerson = Hackney.Shared.HousingSearch.Gateways.Models.Persons.QueryablePerson;
 using Test_Search_Api.V1.Interfaces;
 
-namespace HousingSearchApi.V1.Infrastructure.Factories
+namespace Test_Search_Api.V1.Infrastructure.Factories
 {
     public class QueryFactory : IQueryFactory
     {

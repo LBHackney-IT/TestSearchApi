@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using Test_Search_Api.V1.Boundary.Requests;
+using Test_Search_Api.V1.Interfaces.Sorting;
 
 
 namespace Test_Search_Api.V1.Interfaces.Sorting

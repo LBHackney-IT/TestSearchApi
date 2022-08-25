@@ -7,7 +7,7 @@ using Test_Search_Api.V1.Boundary.Requests;
 using Test_Search_Api.V1.Interfaces.Factories;
 using Nest;
 
-namespace HousingSearchApi.V1.Infrastructure.Factories
+namespace Test_Search_Api.V1.Infrastructure.Factories
 {
     public class AssetQueryGenerator : IQueryGenerator<QueryableAsset>
     {
