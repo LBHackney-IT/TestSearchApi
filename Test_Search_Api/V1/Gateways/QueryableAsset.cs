@@ -1,4 +1,6 @@
-﻿namespace Test_Search_Api.V1.Gateways
+﻿using Nest;
+
+namespace Test_Search_Api.V1.Gateways
 {
     public class QueryableAsset
     {
