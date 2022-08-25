@@ -4,7 +4,7 @@ using Hackney.Core.ElasticSearch.Interfaces;
 using Test_Search_Api.V1.Interfaces;
 using Nest;
 
-namespace HousingSearchApi.V1.Infrastructure.Core
+namespace Test_Search_Api.V1.Infrastructure.Core
 {
     public class FilterQueryBuilder<T> : IFilterQueryBuilder<T> where T : class
     {

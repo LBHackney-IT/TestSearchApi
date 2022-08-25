@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Nest;
 using System;
 
-namespace HousingSearchApi.V1.Infrastructure.Extensions
+namespace Test_Search_Api.V1.Infrastructure.Extensions
 {
     public static class ElasticSearchExtensions
     {

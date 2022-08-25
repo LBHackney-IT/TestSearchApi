@@ -47,10 +47,12 @@
     <None Remove="V1\Interfaces\Filtering\" />
     <None Remove="NEST" />
     <None Remove="V1\Interfaces\Sorting\" />
+    <None Remove="V1\HealthCheck\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="V1\Interfaces\Factories\" />
     <Folder Include="V1\Interfaces\Filtering\" />
     <Folder Include="V1\Interfaces\Sorting\" />
+    <Folder Include="V1\HealthCheck\" />
   </ItemGroup>
 </Project>
