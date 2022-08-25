@@ -27,6 +27,7 @@
     <PackageReference Include="nunit" Version="3.13.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.3" />
     <PackageReference Include="NEST" Version="7.17.4" />
+    <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,5 +36,20 @@
 
   <ItemGroup>
     <None Remove="NEST" />
+    <None Remove="xunit" />
+    <None Remove="V1\Helper\" />
+    <None Remove="V1\HealthCheck\" />
+    <None Remove="V1\E2ETests\" />
+    <None Remove="V1\E2ETests\Fixtures\" />
+    <None Remove="V1\E2ETests\Steps\" />
+    <None Remove="V1\E2ETests\Stories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="V1\Helper\" />
+    <Folder Include="V1\HealthCheck\" />
+    <Folder Include="V1\E2ETests\" />
+    <Folder Include="V1\E2ETests\Fixtures\" />
+    <Folder Include="V1\E2ETests\Steps\" />
+    <Folder Include="V1\E2ETests\Stories\" />
   </ItemGroup>
 </Project>
