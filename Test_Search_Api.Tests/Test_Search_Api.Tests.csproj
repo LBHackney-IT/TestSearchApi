@@ -43,6 +43,7 @@
     <None Remove="V1\E2ETests\Fixtures\" />
     <None Remove="V1\E2ETests\Steps\" />
     <None Remove="V1\E2ETests\Stories\" />
+    <None Remove="V1\E2ETests\Steps\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="V1\Helper\" />
@@ -51,5 +52,6 @@
     <Folder Include="V1\E2ETests\Fixtures\" />
     <Folder Include="V1\E2ETests\Steps\" />
     <Folder Include="V1\E2ETests\Stories\" />
+    <Folder Include="V1\E2ETests\Steps\Base\" />
   </ItemGroup>
 </Project>
