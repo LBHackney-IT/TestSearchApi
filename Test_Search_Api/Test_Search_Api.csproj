@@ -40,6 +40,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.4.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.3" />
     <PackageReference Include="NEST" Version="7.17.4" />
+    <PackageReference Include="Hackney.Shared.Asset" Version="0.14.0" />
+    <PackageReference Include="Hackney.Shared.HousingSearch" Version="0.38.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,11 +50,15 @@
     <None Remove="NEST" />
     <None Remove="V1\Interfaces\Sorting\" />
     <None Remove="V1\HealthCheck\" />
+    <None Remove="Hackney.Shared.Asset" />
+    <None Remove="Hackney.Shared.HousingSearch" />
+    <None Remove="V1\Domain\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="V1\Interfaces\Factories\" />
     <Folder Include="V1\Interfaces\Filtering\" />
     <Folder Include="V1\Interfaces\Sorting\" />
     <Folder Include="V1\HealthCheck\" />
+    <Folder Include="V1\Domain\" />
   </ItemGroup>
 </Project>

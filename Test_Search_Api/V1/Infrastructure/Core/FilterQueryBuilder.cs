@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Hackney.Core.ElasticSearch.Interfaces;
-using Test_Search_Api.V1.Interfaces;
 using Nest;
 
 namespace Test_Search_Api.V1.Infrastructure.Core
