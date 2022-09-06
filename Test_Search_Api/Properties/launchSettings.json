@@ -19,6 +19,14 @@
         "DynamoDb_LocalMode": "true",
         "DynamoDb_LocalServiceUrl": "http://localhost:8000"
       }
+    },
+    "Test_Search_Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:64592",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

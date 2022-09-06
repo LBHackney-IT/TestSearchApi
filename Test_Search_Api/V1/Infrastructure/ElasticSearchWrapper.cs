@@ -8,8 +8,6 @@ using Elasticsearch.Net;
 using Test_Search_Api.V1.Interfaces;
 using Test_Search_Api.V1.Interfaces.Factories;
 using Test_Search_Api.V1.Interfaces.Filtering;
-using Test_Search_Api.V1.Boundary.Requests;
-using Test_Search_Api.V1.Infrastructure.Factories;
 
 namespace Test_Search_Api.V1.Infrastructure
 {

@@ -2,6 +2,8 @@ using System;
 using Test_Search_Api.V1.Interfaces.Factories;
 using Microsoft.Extensions.DependencyInjection;
 using Test_Search_Api.V1.Gateways;
+using Hackney.Core.ElasticSearch.Interfaces;
+using Test_Search_Api.V1.Interfaces;
 
 namespace Test_Search_Api.V1.Infrastructure.Factories
 {

@@ -30,6 +30,8 @@ using Hackney.Core.DynamoDb.HealthCheck;
 using Hackney.Core.DynamoDb;
 using Hackney.Core.JWT;
 using Hackney.Core.Middleware.Exception;
+using Test_Search_Api.Versioning;
+using Test_Search_Api.V1.Gateways.Interfaces;
 
 namespace Test_Search_Api
 {
@@ -148,7 +150,7 @@ namespace Test_Search_Api
 
         private static void RegisterGateways(IServiceCollection services)
         {
-            services.AddScoped<IExampleGateway, ExampleGateway>();
+            services.AddScoped<ISearchGateway, SearchGateway>();
 
             //TODO: For DynamoDb, remove the line above and uncomment the line below.
             //services.AddScoped<IExampleDynamoGateway, DynamoDbGateway>();
@@ -156,8 +158,7 @@ namespace Test_Search_Api
 
         private static void RegisterUseCases(IServiceCollection services)
         {
-            services.AddScoped<IGetAllUseCase, GetAllUseCase>();
-            services.AddScoped<IGetByIdUseCase, GetByIdUseCase>();
+            services.AddScoped<IGetAssetListUseCase, GetAssetListUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

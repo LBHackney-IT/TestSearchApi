@@ -42,6 +42,7 @@
     <PackageReference Include="NEST" Version="7.17.4" />
     <PackageReference Include="Hackney.Shared.Asset" Version="0.14.0" />
     <PackageReference Include="Hackney.Shared.HousingSearch" Version="0.38.0" />
+    <PackageReference Include="Hackney.Core.ElasticSearch" Version="1.72.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +54,7 @@
     <None Remove="Hackney.Shared.Asset" />
     <None Remove="Hackney.Shared.HousingSearch" />
     <None Remove="V1\Domain\" />
+    <None Remove="Hackney.Core.ElasticSearch" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="V1\Interfaces\Factories\" />

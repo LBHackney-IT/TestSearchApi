@@ -30,6 +30,8 @@
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="Hackney.Shared.Asset" Version="0.14.0" />
     <PackageReference Include="Hackney.Shared.HousingSearch" Version="0.38.0" />
+    <PackageReference Include="Hackney.Core.ElasticSearch" Version="1.72.0" />
+    <PackageReference Include="Hackney.Core.DynamoDb" Version="1.51.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +50,8 @@
     <None Remove="V1\E2ETests\Steps\Base\" />
     <None Remove="Hackney.Shared.Asset" />
     <None Remove="Hackney.Shared.HousingSearch" />
+    <None Remove="Hackney.Core.ElasticSearch" />
+    <None Remove="Hackney.Core.DynamoDb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="V1\Helper\" />
