@@ -26,7 +26,7 @@ namespace Test_Search_Api.V1.Domain
         public static DomainAsset Create(string title, string firstName, string lastName, string dob, string assetType, int numberOfBedrooms)
         {
             return new DomainAsset(title, firstName, lastName, dob, assetType, numberOfBedrooms);
-        }        
+        }
     }
 }
 

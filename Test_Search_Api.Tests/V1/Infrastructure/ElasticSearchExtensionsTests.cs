@@ -5,10 +5,10 @@ using Moq;
 using Nest;
 using System;
 using System.Linq;
-using HousingSearchApi.V1.Infrastructure.Extensions;
+using Test_Search_Api.V1.Infrastructure.Extensions;
 using Xunit;
 
-namespace HousingSearchApi.Tests.V1.Infrastructure
+namespace Test_Search_Api.Tests.V1.Infrastructure
 {
     public class ElasticSearchExtensionsTests
     {

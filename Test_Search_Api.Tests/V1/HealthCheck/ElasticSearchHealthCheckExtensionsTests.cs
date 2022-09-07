@@ -5,6 +5,8 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Moq;
 using System.Linq;
 using Xunit;
+using Hackney.Core.ElasticSearch.HealthCheck;
+using ElasticSearchHealthCheck = Test_Search_Api.V1.HealthCheck.ElasticSearchHealthCheck;
 
 namespace HousingSearchApi.Tests.V1.HealthCheck
 {

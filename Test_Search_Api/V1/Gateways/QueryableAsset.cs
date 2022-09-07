@@ -1,4 +1,4 @@
-﻿using Hackney.Shared.Asset.Domain;
+using Hackney.Shared.Asset.Domain;
 using Nest;
 using Test_Search_Api.V1.Domain;
 
@@ -8,7 +8,7 @@ namespace Test_Search_Api.V1.Gateways
     {
         public DomainAsset Create()
         {
-            return DomainAsset.Create(Title, FirstName, LastName, DOB, AssetType,NumberOfBedrooms);
+            return DomainAsset.Create(Title, FirstName, LastName, DOB, AssetType, NumberOfBedrooms);
         }
 
         [Text(Name = "id")]

@@ -1,4 +1,4 @@
-﻿namespace Test_Search_Api.V1.Boundary.Response
+namespace Test_Search_Api.V1.Boundary.Response
 {
     public class Asset
     {
