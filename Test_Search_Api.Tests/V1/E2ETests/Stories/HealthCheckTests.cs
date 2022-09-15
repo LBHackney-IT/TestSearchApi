@@ -1,9 +1,5 @@
-using Bogus.DataSets;
-using HousingSearchApi.Tests.V1.E2ETests.Steps;
-using System;
-using Test_Search_Api;
-using Test_Search_Api.Tests;
 using Test_Search_Api.Tests.V1.E2ETests.Steps;
+using System;
 using TestStack.BDDfy;
 using Xunit;
 

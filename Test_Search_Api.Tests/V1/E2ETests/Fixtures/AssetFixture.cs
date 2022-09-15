@@ -1,14 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
 using AutoFixture;
 using Elasticsearch.Net;
-using Hackney.Shared.HousingSearch.Gateways.Models.Assets;
 using Hackney.Shared.HousingSearch.Gateways.Models.Persons;
 using Nest;
-using Test_Search_Api.V1.Gateways;
 using QueryableAsset = Test_Search_Api.V1.Gateways.QueryableAsset;
 
 namespace Test_Search_Api.Tests.V1.E2ETests.Fixtures
@@ -17,6 +14,13 @@ namespace Test_Search_Api.Tests.V1.E2ETests.Fixtures
     {
         public List<QueryablePerson> Persons { get; private set; }
         private const string INDEX = "assets";
+        public static AssetStub[] Assets =
+        {
+            new AssetStub{Title = "Mr", FirstName = "John", LastName = "Doe", DOB = "01/01/1980", AssetType = "House", NumberOfBedrooms = 2},
+            new AssetStub{Title = "Ms", FirstName = "Jane", LastName = "Doe", DOB = "01/01/1970", AssetType = "Flat", NumberOfBedrooms = 3},
+            new AssetStub{Title = "Mx", FirstName = "Jerry", LastName = "Seinfeld", DOB = "01/01/1960", AssetType = "Maisonette", NumberOfBedrooms = 1}
+        };
+
 
         public AssetFixture(IElasticClient elasticClient, HttpClient httpClient) : base(elasticClient, httpClient)
         {
@@ -49,26 +53,21 @@ namespace Test_Search_Api.Tests.V1.E2ETests.Fixtures
         {
             var listOfAssets = new List<QueryableAsset>();
             var fixture = new Fixture();
-            var random = new Random();
-
-            foreach (var value in Addresses)
-            {
-                var asset = fixture.Create<QueryableAsset>();
-                asset.AssetAddress.AddressLine1 = value.FirstLine;
-                asset.AssetType = value.AssetType;
-                asset.AssetAddress.PostCode = value.PostCode;
-                asset.AssetAddress.Uprn = value.UPRN;
-                asset.AssetStatus = value.AssetStatus;
-                asset.AssetCharacteristics.NumberOfBedSpaces = value.NoOfBedSpaces;
-                asset.AssetCharacteristics.NumberOfCots = value.NoOfCots;
-                asset.AssetCharacteristics.HasStairs = value.HasStairs;
-                asset.AssetCharacteristics.HasPrivateBathroom = value.PrivateBathroom;
-                asset.AssetCharacteristics.HasPrivateKitchen = value.PrivateKitchen;
-                asset.AssetCharacteristics.IsStepFree = value.StepFree;
-                listOfAssets.Add(asset);
-            }
+            var asset = fixture.Create<QueryableAsset>();
+               
+            listOfAssets.Add(asset);
 
             return listOfAssets;
+        }
+
+        public class AssetStub
+        {
+            public string Title { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string DOB { get; set; }
+            public string AssetType { get; set; }
+            public int NumberOfBedrooms { get; set; }
         }
     }
 }

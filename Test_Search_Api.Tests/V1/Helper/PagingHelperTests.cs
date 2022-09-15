@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Test_Search_Api.V1.Infrastructure;
 using Xunit;
 
 namespace Test_Search_Api.Tests.V1.Helper

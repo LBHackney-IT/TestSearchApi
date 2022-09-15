@@ -1,9 +1,3 @@
-using System.Linq;
-using Bogus.DataSets;
-using HousingSearchApi.Tests.V1.E2ETests.Fixtures;
-using HousingSearchApi.Tests.V1.E2ETests.Steps;
-using Test_Search_Api;
-using Test_Search_Api.Tests;
 using Test_Search_Api.Tests.V1.E2ETests.Fixtures;
 using Test_Search_Api.Tests.V1.E2ETests.Steps;
 using TestStack.BDDfy;
@@ -66,66 +60,6 @@ namespace Test_Search_Api.Tests.V1.E2ETests.Stories
             this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
                 .When(w => _steps.WhenAssetTypesAreProvided(asset))
                 .Then(t => _steps.ThenOnlyTheseAssetTypesShouldBeIncluded(asset))
-                .BDDfy();
-        }
-
-        [Fact]
-        public void ServiceFiltersGivenAssetTypesWithSearchTextStarStar()
-        {
-            var asset = "Dwelling";
-            this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
-                .When(w => _steps.WhenSearchTextProvidedAsStarStarAndAssetTypeProvidedAndLastHitIdNotProvided(asset))
-                .Then(d => _steps.ThenOnlyLastHitIdShouldBeIncluded())
-                .Then(t => _steps.ThenOnlyAllAssetsResponseTheseAssetTypesShouldBeIncluded(asset))
-                .BDDfy();
-        }
-
-        [Fact]
-        public void ServiceFiltersGivenAssetTypesWithSearchTextStarStarAndGivenLastHitId()
-        {
-            var asset = "Dwelling";
-            this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
-                .When(w => _steps.WhenSearchTextProvidedAsStarStarAndAssetTypeProvidedAndLastHitIdProvided(asset))
-                .Then(t => _steps.ThenOnlyAllAssetsResponseTheseAssetTypesShouldBeIncluded(asset))
-                .BDDfy();
-        }
-
-        [Fact]
-        public void ServiceReturnsExactMatchFirstIfExists()
-        {
-            this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
-                .When(w => _steps.WhenAnExactMatchExists("5 Buckland Court St Johns Estate"))
-                .Then(t => _steps.ThenThatAddressShouldBeTheFirstResult("5 Buckland Court St Johns Estate"))
-                .BDDfy();
-        }
-
-        [Fact]
-        public void ServiceFiltersGivenAssetStatusWithoutSearchText()
-        {
-            var asset = "Reserved";
-            this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
-                .When(w => _steps.WhenAnAssetStatusIsProvided(asset))
-                .Then(t => _steps.ThenOnlyAllAssetsResponseTheseAssetStatusesShouldBeIncluded(asset))
-                .BDDfy();
-        }
-
-        [Fact]
-        public void ServiceFiltersGivenNumberOfBedSpacesWithoutSearchText()
-        {
-            var bedspaces = 2;
-            this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
-                .When(w => _steps.WhenNoOfBedSpacesIsProvided(bedspaces))
-                .Then(t => _steps.ThenNumberOfBedSpacesShouldBeInResult(bedspaces))
-                .BDDfy();
-        }
-
-        [Fact]
-        public void ServiceFiltersGivenFloorNoWithoutSearchText()
-        {
-            var floorNo = 1;
-            this.Given(g => _assetsFixture.GivenAnAssetIndexExists())
-                .When(w => _steps.WhenFloorNoIsProvided(floorNo))
-                .Then(t => _steps.ThenFloorNoShouldBeInResult(floorNo))
                 .BDDfy();
         }
     }
